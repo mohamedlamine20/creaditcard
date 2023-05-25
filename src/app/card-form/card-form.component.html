@@ -1,0 +1,40 @@
+
+<div class="columns">
+   <div class="column">
+      <app-card [name]="cardForm.controls.name.value"
+[expiration]="cardForm.controls.expiration.value"
+[cardNumber]="cardForm.controls.cardNumber.value"
+></app-card>
+   </div>
+   <div class="column">
+
+      <form (ngSubmit)="onSubmit()" [formGroup]="cardForm">
+         <app-input  placeholder="Mohamed Lamine" lable="Name" [control]="cardForm.controls.name"></app-input>
+         <app-input placeholder="0000-0000-0000-0000" mask="0000-0000-0000-0000" lable="Card Name" [control]="cardForm.controls.cardNumber"></app-input>
+         <div class="columns">
+            <div class="column">
+               <app-input   placeholder="01/20" lable="Expiration (MM/YY)" [control]="cardForm.controls.expiration"></app-input>
+            </div>
+            <div class="column">
+               <app-input  placeholder="123"lable="Security Code" [control]="cardForm.controls.securityCode"></app-input>
+      
+            </div>
+      
+         </div>
+          <div class="buttons">
+            <button class="button is-primary" [disabled]="cardForm.invalid" type="submit">Submit</button>
+            <button class="button is-warning" type="button" (click)="onReset()">Rest</button>
+          </div>
+         
+      
+      </form>
+
+   </div>
+
+
+</div>
+
+
+
+
+
